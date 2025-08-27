@@ -1,0 +1,13 @@
+rootProject.name = "payment-system"
+
+include("libs:common-lib")
+include("services:payments-api")
+include("services:psp-adapter")
+include("services:notification")
+include 'services:payments-api'
+findProject(':services:payments-api')?.name = 'payments-api'
+include 'services:payments-api:psp-adapter'
+findProject(':services:payments-api:psp-adapter')?.name = 'psp-adapter'
+include 'services:notification'
+findProject(':services:notification')?.name = 'notification'
+
